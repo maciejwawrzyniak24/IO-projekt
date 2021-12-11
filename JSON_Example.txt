@@ -1,0 +1,24 @@
+Przykładowe wejście w formacie JSON:
+{
+    "title": "Przyklad",
+    "authors": [
+        "Uzytkownik",
+        "Komputer",
+        "Aplikacja"
+    ],
+    "steps": [
+        {
+            "text": "Krok poziom pierwszy",
+            "subSteps": [
+                {
+                    "text": "Krok poziom drugi",
+                    "subSteps": []
+                },
+                {
+                    "text": "Nastepny krok poziom drugi",
+                    "subSteps": []
+                }
+            ]
+        }
+    ]
+}
