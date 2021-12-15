@@ -6,7 +6,7 @@ import pl.put.poznan.transformer.logic.Step;
 /**
  * Interfejs implementowany przez wszyskich wizytatorow
  * @author Przemysław Szymczak
- * @version 1.0
+ * @version 1.1
  */
 
 public interface Visitor {
@@ -21,5 +21,7 @@ public interface Visitor {
      * @param scenario caly scenariusz
      */
     public void visit(Scenario scenario);
+
+    public Object getResult();
 
 }
