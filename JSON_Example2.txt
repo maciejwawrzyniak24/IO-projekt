@@ -1,0 +1,45 @@
+{
+    "title": "Przyklad",
+    "authors": [
+        "Uzytkownik",
+        "Komputer",
+        "Aplikacja",
+        "Laptop"
+    ],
+    "steps": [
+        {
+            "text": "Krok pierwszy poziom pierwszy",
+            "subSteps": [
+                {
+                    "text": "Krok pierwszy poziom drugi",
+                    "subSteps": []
+                },
+                {
+                    "text": "Krok drugi poziom drugi",
+                    "subSteps": []
+                },
+                {
+                    "text": "Krok trzeci poziom drugi",
+                    "subSteps": []
+                }
+            ]
+        },
+        {
+            "text": "Krok drugi poziom pierwszy",
+            "subSteps": [
+                {
+                    "text": "Krok pierwszy poziom drugi",
+                    "subSteps": []
+                },
+                {
+                    "text": "Krok drugi poziom drugi",
+                    "subSteps": []
+                },
+                {
+                    "text": "Krok trzeci poziom drugi",
+                    "subSteps": []
+                }
+            ]
+        }
+    ]
+}

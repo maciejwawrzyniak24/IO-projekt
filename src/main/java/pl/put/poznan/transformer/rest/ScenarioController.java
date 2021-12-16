@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import pl.put.poznan.transformer.logic.Scenario;
 import pl.put.poznan.transformer.visitor.ExampleVisitor;
+import pl.put.poznan.transformer.visitor.HowManyStepsVisitor;
 
 /**
  * Klasa odpowiadajaca za implementacje endpointow API
@@ -25,4 +26,10 @@ public class ScenarioController {
         return visitor.getResult();
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/example-howmanystepsvisitor")
+    public Object setScenario2(@RequestBody Scenario scenario) {
+        var visitor = new HowManyStepsVisitor();
+        scenario.accept(visitor);
+        return visitor.getResult();
+    }
 }

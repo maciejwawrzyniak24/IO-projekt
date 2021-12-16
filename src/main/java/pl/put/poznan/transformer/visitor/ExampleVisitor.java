@@ -2,7 +2,6 @@ package pl.put.poznan.transformer.visitor;
 
 import pl.put.poznan.transformer.logic.Scenario;
 import pl.put.poznan.transformer.logic.Step;
-import pl.put.poznan.transformer.visitor.Visitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,6 @@ public class ExampleVisitor implements Visitor {
      * Lista Stringow przechowujaca wynik dzialania wizytytora
      */
     private List<String> result;
-
     public List<String> getResult() {
         return result;
     }
