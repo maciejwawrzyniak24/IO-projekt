@@ -1,9 +1,0 @@
-pl\put\poznan\transformer\visitor\Visitor.class
-pl\put\poznan\transformer\app\ScenarioQualityCheckerApplication.class
-pl\put\poznan\transformer\visitor\StepsWithKeywordsVisitor.class
-pl\put\poznan\transformer\visitor\HowManyStepsVisitor.class
-pl\put\poznan\transformer\logic\Element.class
-pl\put\poznan\transformer\logic\Scenario.class
-pl\put\poznan\transformer\visitor\StepsWithoutAuthorVisitor.class
-pl\put\poznan\transformer\rest\ScenarioController.class
-pl\put\poznan\transformer\logic\Step.class
