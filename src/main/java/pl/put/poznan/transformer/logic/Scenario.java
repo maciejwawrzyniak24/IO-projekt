@@ -9,9 +9,10 @@ import java.util.List;
  * Sklada sie z tytulu, listy autorow i listy krokow
  * @see Step
  * @author Przemyslaw Szymczak
- * @version 1.0
+ * @version 1.1
+ * @see Element
  */
-public class Scenario {
+public class Scenario implements Element{
 
     /**
      * Przechowuje tytul scenariusza

@@ -8,10 +8,11 @@ import java.util.List;
  * Klasa przechowuje krok scenariusza
  * Oprocz tekstu przechowuje liste podscenariuszy
  * @author Przemyslaw Szymczak
- * @version 1.0
+ * @version 1.1
  * @see Scenario
+ * @see Element
  */
-public class Step {
+public class Step implements Element{
 
     /**
      * Przechowuje tekst kroku scenariusza
