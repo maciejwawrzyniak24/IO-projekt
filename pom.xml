@@ -15,6 +15,7 @@
     <artifactId>Scenario_Quality_Checker</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
+    <name>Scenario_Quality_Checker</name>
 
 	<properties>
         <java.version>11</java.version>
