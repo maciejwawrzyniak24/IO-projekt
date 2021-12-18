@@ -1,0 +1,25 @@
+cmd.exe
+/X
+/C
+""C:\Program Files\Java\jdk-15\bin\javadoc.exe" @options @packages"
+D:\Projekt IO\IO-projekt\target\apidocs\allclasses-index.html = 1639827637426
+D:\Projekt IO\IO-projekt\target\apidocs\allpackages-index.html = 1639827637430
+D:\Projekt IO\IO-projekt\target\apidocs\constant-values.html = 1639827637225
+D:\Projekt IO\IO-projekt\target\apidocs\deprecated-list.html = 1639827637358
+D:\Projekt IO\IO-projekt\target\apidocs\element-list = 1639827637153
+D:\Projekt IO\IO-projekt\target\apidocs\help-doc.html = 1639827637441
+D:\Projekt IO\IO-projekt\target\apidocs\index-all.html = 1639827637416
+D:\Projekt IO\IO-projekt\target\apidocs\index.html = 1639827637364
+D:\Projekt IO\IO-projekt\target\apidocs\jquery-ui.overrides.css = 1639827637509
+D:\Projekt IO\IO-projekt\target\apidocs\member-search-index.js = 1639827637413
+D:\Projekt IO\IO-projekt\target\apidocs\module-search-index.js = 1639827637409
+D:\Projekt IO\IO-projekt\target\apidocs\options = 1639827635083
+D:\Projekt IO\IO-projekt\target\apidocs\overview-summary.html = 1639827637433
+D:\Projekt IO\IO-projekt\target\apidocs\overview-tree.html = 1639827637348
+D:\Projekt IO\IO-projekt\target\apidocs\package-search-index.js = 1639827637411
+D:\Projekt IO\IO-projekt\target\apidocs\packages = 1639827635144
+D:\Projekt IO\IO-projekt\target\apidocs\script.js = 1639827637458
+D:\Projekt IO\IO-projekt\target\apidocs\search.js = 1639827637464
+D:\Projekt IO\IO-projekt\target\apidocs\stylesheet.css = 1639827637448
+D:\Projekt IO\IO-projekt\target\apidocs\tag-search-index.js = 1639827637414
+D:\Projekt IO\IO-projekt\target\apidocs\type-search-index.js = 1639827637412
