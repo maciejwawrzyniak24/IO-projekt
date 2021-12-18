@@ -8,6 +8,8 @@ import pl.put.poznan.transformer.logic.Scenario;
 import pl.put.poznan.transformer.visitor.HowManyStepsVisitor;
 import pl.put.poznan.transformer.visitor.StepsWithKeywordsVisitor;
 import pl.put.poznan.transformer.visitor.StepsWithoutAuthorVisitor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Klasa odpowiadajaca za implementacje endpointow API
@@ -16,14 +18,16 @@ import pl.put.poznan.transformer.visitor.StepsWithoutAuthorVisitor;
  */
 @RestController
 public class ScenarioController {
-
+    final Logger logger = LoggerFactory.getLogger(ScenarioController.class);
     /**
      * Funkcja umozliwia policzenie liczby kroków w scenariuszu
      */
     @RequestMapping(method = RequestMethod.POST, value = "/example-howmanystepsvisitor")
     public Object setScenario1(@RequestBody Scenario scenario) {
+        logger.debug("setScenario1");
         var visitor = new HowManyStepsVisitor();
         scenario.accept(visitor);
+        logger.info("HowManyStepsVisitor result: {}", visitor.getResult());
         return visitor.getResult();
     }
 
@@ -34,8 +38,10 @@ public class ScenarioController {
      */
     @RequestMapping(method = RequestMethod.POST, value = "/stepswithkeywords-visitor")
     public Object setScenario2(@RequestBody Scenario scenario) {
+        logger.debug("setScenario2");
         var visitor = new StepsWithKeywordsVisitor();
         scenario.accept(visitor);
+        logger.info("StepsWithKeywordsVisitor result: {}", visitor.getResult());
         return visitor.getResult();
     }
 
@@ -46,8 +52,10 @@ public class ScenarioController {
      */
     @RequestMapping(method = RequestMethod.POST, value = "/stepswithoutauthor-visitor")
     public Object setScenario3(@RequestBody Scenario scenario) {
+        logger.debug("setScenario3");
         var visitor = new StepsWithoutAuthorVisitor();
         scenario.accept(visitor);
+        logger.info("StepsWithoutAuthorVisitor result: {}", visitor.getResult());
         return visitor.getResult();
     }
 }
