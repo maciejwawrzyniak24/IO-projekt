@@ -1,0 +1,63 @@
+{
+    "title": "Dodanie książki",
+    "authors": [
+        "Bibliotekarz",
+        "System"
+    ],
+    "steps": [
+        {
+            "text": "Bibliotekarz wybiera opcje dodania nowej pozycji książkowej.",
+            "subSteps": []
+        },
+        {
+            "text": "Wyświetla się formularz.",
+            "subSteps": []
+        },
+        {
+            "text": "Bibliotekarz podaje dane książki.",
+            "subSteps": []
+        },
+        {
+            "text": "IF: Bibliotekarz pragnie dodać egzemplarze książki.",
+            "subSteps": [
+                            {
+                                "text": "Bibliotekarz wybiera opcję definiowania egzemplarzy.",
+                                "subSteps": []
+                            },
+                            {
+                                "text": "System prezentuje zdefiniowane egzemplarze.",
+                                "subSteps": []
+                            },
+                            {
+                                "text": "FOR EACH egzemplarz:",
+                                "subSteps": [
+                                    {
+                                        "text": "Bibliotekarz wybiera opcję dodania egzemplarza.",
+                                        "subSteps": []
+                                    },
+                                    {
+                                        "text": "System prosi o podanie danych egzemplarza.",
+                                        "subSteps": []
+                                    },
+                                    {
+                                        "text": "Bibliotekarz podaje dane egzemplarza i zatwierdza.",
+                                        "subSteps": []
+                                    },
+                                    {
+                                        "text": "System informuje o poprawnym dodaniu egzemplarza i prezentuje zaktualizowaną listę egzemplarzy.",
+                                        "subSteps": []
+                                    }
+                                ]
+                            }
+                        ]
+        },
+        {
+            "text": "Bibliotekarz zatwierdza dodanie książki.",
+            "subSteps": []
+        },
+        {
+            "text": "System informuje o poprawnym dodaniu książki.",
+            "subSteps": []
+        }
+    ]
+}
