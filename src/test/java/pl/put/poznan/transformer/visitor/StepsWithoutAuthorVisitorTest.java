@@ -50,6 +50,7 @@ class StepsWithoutAuthorVisitorTest {
         List<String> words = new ArrayList<>(Arrays.asList("IF", "ELSE", "FOR EACH"));
         visitor.setWords(words);
         visitor.setResult(new ArrayList<>());
+        visitor.setStepNum(new ArrayList<>(Arrays.asList(0)));
         visitor.visit(step);
         assertEquals(new ArrayList<>(), visitor.getResult());
     }
@@ -61,8 +62,9 @@ class StepsWithoutAuthorVisitorTest {
         List<String> words = new ArrayList<>(Arrays.asList("IF", "ELSE", "FOR EACH"));
         visitor.setWords(words);
         visitor.setResult(new ArrayList<>());
+        visitor.setStepNum(new ArrayList<>(Arrays.asList(0)));
         visitor.visit(step);
-        assertEquals(new ArrayList<>(Arrays.asList("Step")), visitor.getResult());
+        assertEquals(new ArrayList<>(Arrays.asList("1. Step")), visitor.getResult());
     }
 
     @Test
@@ -74,7 +76,8 @@ class StepsWithoutAuthorVisitorTest {
         List<String> words = new ArrayList<>(Arrays.asList("IF", "ELSE", "FOR EACH"));
         visitor.setWords(words);
         visitor.setResult(new ArrayList<>());
+        visitor.setStepNum(new ArrayList<>(Arrays.asList(0)));
         visitor.visit(step);
-        assertEquals(new ArrayList<>(Arrays.asList("Step", "Substep1", "Substep2")), visitor.getResult());
+        assertEquals(new ArrayList<>(Arrays.asList("1. Step", "1.1. Substep1", "1.2. Substep2")), visitor.getResult());
     }
 }

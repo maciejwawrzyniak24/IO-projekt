@@ -83,11 +83,19 @@ public class StepsWithoutAuthorVisitor implements Visitor{
         return words;
     }
 
+    public List<Integer> getStepNum() {
+        return stepNum;
+    }
+
     public void setWords(List<String> w) {
         words = w;
     }
 
     public void setResult(List<String> r) {
         result = r;
+    }
+
+    public void setStepNum(List<Integer> s) {
+        stepNum = s;
     }
 }
