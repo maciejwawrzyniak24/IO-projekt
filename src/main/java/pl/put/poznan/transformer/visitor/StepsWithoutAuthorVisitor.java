@@ -64,4 +64,16 @@ public class StepsWithoutAuthorVisitor implements Visitor{
     public List<String> getResult() {
         return result;
     }
+
+    public List<String> getWords() {
+        return words;
+    }
+
+    public void setWords(List<String> w) {
+        words = w;
+    }
+
+    public void setResult(List<String> r) {
+        result = r;
+    }
 }
