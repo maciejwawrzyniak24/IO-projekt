@@ -1,10 +1,8 @@
 package pl.put.poznan.transformer.rest;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.transformer.logic.Scenario;
+import pl.put.poznan.transformer.visitor.GetScenarioTextVisitor;
 import pl.put.poznan.transformer.visitor.HowManyStepsVisitor;
 import pl.put.poznan.transformer.visitor.StepsWithKeywordsVisitor;
 import pl.put.poznan.transformer.visitor.StepsWithoutAuthorVisitor;
@@ -56,6 +54,20 @@ public class ScenarioController {
         var visitor = new StepsWithoutAuthorVisitor();
         scenario.accept(visitor);
         logger.info("StepsWithoutAuthorVisitor result: {}", visitor.getResult());
+        return visitor.getResult();
+    }
+
+    /**
+     * Funkcja zwracająca scenariusz w formie tekstu z numeracją kroków
+     * @param scenario
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.POST, value = "/getscenariotext-visitor")
+    public Object setScenario4(@RequestBody Scenario scenario) {
+        logger.debug("setScenario4");
+        var visitor = new GetScenarioTextVisitor();
+        scenario.accept(visitor);
+        logger.info("GetScenarioTextVisitor result: {}", visitor.getResult());
         return visitor.getResult();
     }
 }
