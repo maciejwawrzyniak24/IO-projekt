@@ -2,7 +2,10 @@ package pl.put.poznan.transformer.rest;
 
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.transformer.logic.Scenario;
-import pl.put.poznan.transformer.visitor.*;
+import pl.put.poznan.transformer.visitor.GetScenarioTextVisitor;
+import pl.put.poznan.transformer.visitor.HowManyStepsVisitor;
+import pl.put.poznan.transformer.visitor.StepsWithKeywordsVisitor;
+import pl.put.poznan.transformer.visitor.StepsWithoutAuthorVisitor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,21 +57,17 @@ public class ScenarioController {
         return visitor.getResult();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/one-actor-steps-visitor")
-    public Object setScenario4(@RequestBody Scenario scenario, @RequestParam(value="actor") String actor) {
+    /**
+     * Funkcja zwracająca scenariusz w formie tekstu z numeracją kroków
+     * @param scenario
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.POST, value = "/getscenariotext-visitor")
+    public Object setScenario4(@RequestBody Scenario scenario) {
         logger.debug("setScenario4");
-        var visitor = new OneActorStepsVisitor(actor);
+        var visitor = new GetScenarioTextVisitor();
         scenario.accept(visitor);
-        logger.info("OneActorStepsVisitor result: {}", visitor.getResult());
-        return visitor.getResult();
-    }
-
-    @RequestMapping(method = RequestMethod.POST, value = "/scenario-max-level-visitor")
-    public Object setScenario5(@RequestBody Scenario scenario, @RequestParam(value="level") int level) {
-        logger.debug("setScenario5");
-        var visitor = new ScenarioMaxLevelVisitor(level);
-        scenario.accept(visitor);
-        logger.info("ScenarioMaxLevelVisitor result: {}", visitor.getResult());
+        logger.info("GetScenarioTextVisitor result: {}", visitor.getResult());
         return visitor.getResult();
     }
 }
