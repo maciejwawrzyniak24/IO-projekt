@@ -2,6 +2,7 @@ package pl.put.poznan.transformer.rest;
 
 import org.springframework.web.bind.annotation.*;
 import pl.put.poznan.transformer.logic.Scenario;
+import pl.put.poznan.transformer.visitor.*;
 import pl.put.poznan.transformer.visitor.GetScenarioTextVisitor;
 import pl.put.poznan.transformer.visitor.HowManyStepsVisitor;
 import pl.put.poznan.transformer.visitor.StepsWithKeywordsVisitor;
@@ -68,6 +69,24 @@ public class ScenarioController {
         var visitor = new GetScenarioTextVisitor();
         scenario.accept(visitor);
         logger.info("GetScenarioTextVisitor result: {}", visitor.getResult());
+        return visitor.getResult();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/one-actor-steps-visitor")
+    public Object setScenario5(@RequestBody Scenario scenario, @RequestParam(value="actor") String actor) {
+        logger.debug("setScenario5");
+        var visitor = new OneActorStepsVisitor(actor);
+        scenario.accept(visitor);
+        logger.info("OneActorStepsVisitor result: {}", visitor.getResult());
+        return visitor.getResult();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/scenario-max-level-visitor")
+    public Object setScenario6(@RequestBody Scenario scenario, @RequestParam(value="level") int level) {
+        logger.debug("setScenario6");
+        var visitor = new ScenarioMaxLevelVisitor(level);
+        scenario.accept(visitor);
+        logger.info("ScenarioMaxLevelVisitor result: {}", visitor.getResult());
         return visitor.getResult();
     }
 }
