@@ -10,8 +10,16 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testy wizytatora, ktory sprawdza, ktore kroki nie rozpoczynaja sie od aktora
+ * @author Kajetan Wencierski
+ * @version 1.0
+ */
 class StepsWithoutAuthorVisitorTest {
 
+    /**
+     * Test z uzyciem pustego scenariusza
+     */
     @Test
     void testVisitScenarioResult() {
         StepsWithoutAuthorVisitor visitor = new StepsWithoutAuthorVisitor();
@@ -25,6 +33,9 @@ class StepsWithoutAuthorVisitorTest {
         assertTrue(visitor.getResult().isEmpty());
     }
 
+    /**
+     * Test z uzyciem scenariusza
+     */
     @Test
     void testVisitScenarioWords() {
         StepsWithoutAuthorVisitor visitor = new StepsWithoutAuthorVisitor();
@@ -43,6 +54,9 @@ class StepsWithoutAuthorVisitorTest {
         assertEquals(expectedString, visitor.getWords());
     }
 
+    /**
+     * Test z uzyciem kroku ze slowem kluczowym
+     */
     @Test
     void testVisitStepEmpty() {
         StepsWithoutAuthorVisitor visitor = new StepsWithoutAuthorVisitor();
@@ -55,6 +69,9 @@ class StepsWithoutAuthorVisitorTest {
         assertEquals(new ArrayList<>(), visitor.getResult());
     }
 
+    /**
+     * Test z uzyciem kroku bez slowa kluczowego
+     */
     @Test
     void testVisitStepWithoutSubSteps() {
         StepsWithoutAuthorVisitor visitor = new StepsWithoutAuthorVisitor();
@@ -67,6 +84,9 @@ class StepsWithoutAuthorVisitorTest {
         assertEquals(new ArrayList<>(Arrays.asList("1. Step")), visitor.getResult());
     }
 
+    /**
+     * Test z uzyciem kroku z podkrokami
+     */
     @Test
     void testVisitStep() {
         StepsWithoutAuthorVisitor visitor = new StepsWithoutAuthorVisitor();

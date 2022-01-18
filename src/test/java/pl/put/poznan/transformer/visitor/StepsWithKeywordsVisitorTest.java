@@ -10,8 +10,16 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testy wizytatora, ktory liczy ile krokow zawiera slowa kluczowe
+ * @author Kajetan Wencierski
+ * @version 1.0
+ */
 class StepsWithKeywordsVisitorTest {
 
+    /**
+     *Test z uzyciem pustego scenariusza
+     */
     @Test
     void testVisitScenario() {
         StepsWithKeywordsVisitor visitor = new StepsWithKeywordsVisitor();
@@ -25,6 +33,9 @@ class StepsWithKeywordsVisitorTest {
         assertEquals(0, visitor.getResult());
     }
 
+    /**
+     * Test z uzyciem kroku z 2 podkrokami
+     */
     @Test
     void testVisitStep() {
         StepsWithKeywordsVisitor visitor = new StepsWithKeywordsVisitor();
@@ -35,6 +46,9 @@ class StepsWithKeywordsVisitorTest {
         assertEquals(2, visitor.getResult());
     }
 
+    /**
+     * Test z uzyciem pustego kroku
+     */
     @Test
     void testVisitStepEmpty() {
         StepsWithKeywordsVisitor visitor = new StepsWithKeywordsVisitor();

@@ -9,62 +9,38 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+
 
 /**
- * Testy wizytatora ktory liczy wszystkie kroki w scenariuszu
- * @author Kajetan Wencierski
+ * Testy wizytatora, ktory zwraca scenariusz w formie tekstu z numeracją kroków.
+ * @author Maciej Wawrzyniak
  * @version 1.0
  */
-class HowManyStepsVisitorTest {
+public class GetScenarioTextVisitorTest {
 
     /**
      * Test z uzyciem pustego scenariusza
      */
     @Test
-    void testVisitScenarioEmpty() {
-        HowManyStepsVisitor visitor = new HowManyStepsVisitor();
-        Step step = new Step("Step", new ArrayList<>());
+    void testVisitScenarioEmpty(){
+        GetScenarioTextVisitor visitor = new GetScenarioTextVisitor();
+        Scenario mockScenario = mock(Scenario.class);
         List<Step> steps = new ArrayList<>();
-        steps.add(step);
-        List<String> authors = new ArrayList<>();
-        authors.add("John Smith");
-        Scenario scenario = new Scenario("Title", authors, steps);
-        visitor.visit(scenario);
-        assertEquals(0, visitor.getResult());
+        steps.add(new Step("Step", new ArrayList<>()));
+        when(mockScenario.getSteps()).thenReturn(steps);
+
+        visitor.visit(mockScenario);
+
+        assertEquals(new ArrayList<>(), visitor.getResult());
     }
 
     /**
-     * Test z uzyciem kroku z podkrokami
-     */
-    @Test
-    void testVisitStep() {
-        HowManyStepsVisitor visitor = new HowManyStepsVisitor();
-        Step substep1 = new Step("Substep1", new ArrayList<>());
-        Step substep2 = new Step("Substep2", new ArrayList<>());
-        Step step = new Step("Step", Arrays.asList(substep1, substep2));
-        visitor.visit(step);
-        assertEquals(3, visitor.getResult());
-    }
-
-    /**
-     * Test z uzyciem pustego kroku
-     */
-    @Test
-    void testVisitStepEmpty() {
-        HowManyStepsVisitor visitor = new HowManyStepsVisitor();
-        Step step = new Step("", new ArrayList<>());
-        visitor.visit(step);
-        assertEquals(1, visitor.getResult());
-    }
-
-    /**
-     * Test z uzyciem scenariusza z 3 krokami
+     * Test z uzyciem przykładowego scenariusza z trzema krokami
      */
     @Test
     void testVisitScenario(){
-        HowManyStepsVisitor visitor = new HowManyStepsVisitor();
+        GetScenarioTextVisitor visitor = new GetScenarioTextVisitor();
 
         Step mockStep1 = mock(Step.class);
         when(mockStep1.getSubSteps()).thenReturn(new ArrayList<>());
@@ -84,7 +60,11 @@ class HowManyStepsVisitorTest {
             visitor.visit(step);
         }
 
-        assertEquals(3, visitor.getResult());
+        List<String> result = new ArrayList<>();
+        result.add("1. step1");
+        result.add("2. step2");
+        result.add("3. step3");
+        assertEquals(result, visitor.getResult());
     }
 
     /**
@@ -92,7 +72,7 @@ class HowManyStepsVisitorTest {
      */
     @Test
     void testVisitScenarioWithSubSteps(){
-        HowManyStepsVisitor visitor = new HowManyStepsVisitor();
+        GetScenarioTextVisitor visitor = new GetScenarioTextVisitor();
 
         Step mockStep1 = mock(Step.class);
         when(mockStep1.getSubSteps()).thenReturn(new ArrayList<>());
@@ -115,6 +95,12 @@ class HowManyStepsVisitorTest {
             visitor.visit(step);
         }
 
-        assertEquals(5, visitor.getResult());
+        List<String> result = new ArrayList<>();
+        result.add("1. step1");
+        result.add("2. step2");
+        result.add("2.1. substep1");
+        result.add("2.2. substep2");
+        result.add("3. step3");
+        assertEquals(result, visitor.getResult());
     }
 }
